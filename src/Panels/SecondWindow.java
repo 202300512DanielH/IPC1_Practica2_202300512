@@ -3,6 +3,7 @@ package Panels;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -15,8 +16,12 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Set;
+import javafx.scene.control.TabPane;
+import javafx.event.ActionEvent;
 
 public class SecondWindow {
     @FXML
@@ -27,6 +32,17 @@ public class SecondWindow {
     private TableColumn<Trip, String> endColumn;
     @FXML
     private TableColumn<Trip, Double> distanceColumn;
+    @FXML
+    private TabPane tabPane;
+
+    private TabOpener tabOpener;
+
+    private Set<String> uniquePlaces = new HashSet<>();
+
+    public void setTabOpener(TabOpener tabOpener) {
+        this.tabOpener = tabOpener;
+    }
+
 
     @FXML
     private Button Editdistance;
@@ -103,10 +119,32 @@ public class SecondWindow {
                     // Add trip to the table as well as to the list 'trips'
                     table.getItems().add(trip);
                     trips.add(trip);   // This is the missing line
+
+                    uniquePlaces.add(values[0]);
+                    uniquePlaces.add(values[1]);
                 }
+                //handleButtonAddNewTripTab();
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            /*handleButtonAddNewTripTab(new ArrayList<>(this.uniquePlaces));  // Here is the change.
+            System.out.println("Unique places: " + uniquePlaces);*/
+
+        }
+
+        handleButtonAddNewTripTab(new ArrayList<>(this.uniquePlaces));
+        System.out.println("Unique places: " + uniquePlaces);
+    }
+
+    @FXML
+    private void handleButtonAddNewTripTab() {
+        if (tabOpener != null) {
+            tabOpener.openTab("NewTrip.fxml", "New Trip", new ArrayList<>(this.uniquePlaces));
+        }
+    }
+    private void handleButtonAddNewTripTab(List<String> places) {  // Here is another change.
+        if (tabOpener != null) {
+            tabOpener.openTab("NewTrip.fxml", "New Trip", places);
         }
     }
 

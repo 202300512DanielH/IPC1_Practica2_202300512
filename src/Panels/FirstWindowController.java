@@ -20,7 +20,7 @@ public class FirstWindowController {
             Stage currentStage = (Stage) Inibutton.getScene().getWindow();
             currentStage.close();
             // Load the fxml file of SecondWindow
-            Parent secondWindow = FXMLLoader.load(getClass().getResource("SecondWindow.fxml"));
+            Parent secondWindow = FXMLLoader.load(getClass().getResource("MainWindow.fxml"));
 
             // Create a new stage
             Stage newStage = new Stage();
