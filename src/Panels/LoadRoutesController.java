@@ -1,5 +1,6 @@
 package Panels;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,6 +13,12 @@ import java.nio.file.Path;
 
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 
 public class LoadRoutesController {
     @FXML
@@ -71,4 +78,36 @@ public class LoadRoutesController {
             }
         }
     }
+
+    @FXML
+    public void openLoadRoutesBisection(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Panels/LoadRoutesBisection.fxml"));
+            Parent root = fxmlLoader.load();
+
+            LoadRoutesBisectionController loadRoutesBisectionController = fxmlLoader.getController();
+            loadRoutesBisectionController.setLoadRoutesController(this);
+
+            Stage stage = new Stage();
+            stage.setTitle("Load Routes Bisection");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            System.err.println("Failed to load LoadRoutesBisection.fxml file.");
+            e.printStackTrace();
+        }
+    }
+    public void updateRoute(String id, String newDistance) {
+        for (Route route: ShowInformation.getItems()) {
+            if (route.getId().equals(id)) {
+                route.setDistance(newDistance);
+                break;
+            }
+        }
+    }
+
+    public ObservableList<Route> getAllRoutes() {
+        return ShowInformation.getItems();
+    }
+
 }

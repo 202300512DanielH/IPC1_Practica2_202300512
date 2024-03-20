@@ -13,6 +13,10 @@ public class Route implements Serializable {
     private transient SimpleStringProperty end;
     private transient SimpleStringProperty distance;
 
+    public void setDistance(String distance) {
+        this.distance.set(distance);
+    }
+
     public Route(String id, String start, String end, String distance) {
         this.id = new SimpleStringProperty(id);
         this.start = new SimpleStringProperty(start);

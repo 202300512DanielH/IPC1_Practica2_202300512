@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Panels.LoadRoutesAlert"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="172.0" prefWidth="324.0" style="-fx-background-color: Crimson;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Panels.LoadRoutesAlertController">
+   <children>
+      <Label layoutX="55.0" layoutY="76.0" text="ID no encontrado :(">
+         <font>
+            <Font name="Comic Sans MS" size="24.0" />
+         </font>
+      </Label>
+   </children>
 </AnchorPane>
