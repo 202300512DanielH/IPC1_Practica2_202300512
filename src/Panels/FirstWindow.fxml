@@ -7,22 +7,21 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="474.0" prefWidth="694.0" style="-fx-background-color: LightSeaGreen;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Panels.FirstWindowController">
    <children>
-      <Button fx:id="Inibutton" onAction="#handleButtonAction"  layoutX="287.0" layoutY="317.0" mnemonicParsing="false" text="¡Comienza tu viaje!">
+      <Button fx:id="Inibutton" layoutX="247.0" layoutY="316.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="109.0" prefWidth="200.0" style="-fx-background-color: PeachPuff;" text="¡Comienza tu viaje!">
          <font>
-            <Font name="Comic Sans MS" size="12.0" />
+            <Font name="Comic Sans MS" size="18.0" />
          </font>
       </Button>
-      <Label alignment="CENTER" layoutX="272.0" layoutY="237.0" prefHeight="80.0" prefWidth="150.0" text="Bienvenido" textAlignment="JUSTIFY">
+      <Label alignment="CENTER" layoutX="272.0" layoutY="47.0" prefHeight="80.0" prefWidth="150.0" text="Bienvenido" textAlignment="JUSTIFY">
          <font>
             <Font name="Comic Sans MS" size="24.0" />
          </font>
       </Label>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="272.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="280.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@car.png" />
+            <Image url="/Images/hatchback.png" />
          </image>
       </ImageView>
    </children>

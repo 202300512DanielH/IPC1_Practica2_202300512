@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="474.0" prefWidth="694.0" style="-fx-background-color: Turquoise;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Panels.LoadRoutesController">
+   <children>
+      <Button fx:id="LoadRoutesButton" layoutX="25.0" layoutY="32.0" mnemonicParsing="false" onAction="#loadRoutes" prefHeight="26.0" prefWidth="206.0" style="-fx-background-color: Teal;" text="Cargar Rutas (.csv)" textFill="WHITE" />
+      <Button fx:id="EditDistanceButton" layoutX="461.0" layoutY="32.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="206.0" style="-fx-background-color: DodgerBlue;" text="Editar Distancia" textFill="WHITE" />
+       <TableView fx:id="ShowInformation" layoutX="25.0" layoutY="74.0" prefHeight="350.0" prefWidth="642.0">
+           <columns>
+               <TableColumn fx:id="colID" prefWidth="123.19997787475586" text="ID" />
+               <TableColumn fx:id="colStart" prefWidth="195.2000274658203" text="Lugar de inicio" />
+               <TableColumn fx:id="colEnd" prefWidth="176.79998779296875" text="Lugar Final" />
+               <TableColumn fx:id="colDistance" prefWidth="125.60009765625" text="Distancia" />
+           </columns>
+       </TableView>
+   </children>
+</AnchorPane>

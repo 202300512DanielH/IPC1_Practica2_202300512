@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+
+
+<TabPane fx:id="tabPane" prefHeight="474.0" prefWidth="694.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Panels.MainWindowsController">
+    <tabs>
+        <Tab text="Cargar Rutas"  >
+            <content>
+                <fx:include source="LoadRoutes.fxml" />
+            </content>
+        </Tab>
+        <Tab text="Generar Viajes" >
+            <content>
+                <fx:include source="GenerateTrip.fxml" />
+            </content>
+        </Tab>
+        <Tab text="Viajes" >
+            <content>
+                <fx:include source="Trip.fxml" />
+            </content>
+        </Tab>
+        <Tab text="Historial" >
+            <content>
+                <fx:include source="Record.fxml" />
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>
