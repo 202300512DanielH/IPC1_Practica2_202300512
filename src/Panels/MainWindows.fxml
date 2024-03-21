@@ -4,16 +4,17 @@
 <?import javafx.scene.control.TabPane?>
 
 
-<TabPane fx:id="tabPane" prefHeight="474.0" prefWidth="694.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Panels.MainWindowsController">
+
+<TabPane fx:id="tabPane" prefHeight="474.0" prefWidth="694.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" >
     <tabs>
         <Tab text="Cargar Rutas"  >
             <content>
-                <fx:include source="LoadRoutes.fxml" />
+                <fx:include fx:id="loadRoutes" source="LoadRoutes.fxml"/>
             </content>
         </Tab>
         <Tab text="Generar Viajes" >
             <content>
-                <fx:include source="GenerateTrip.fxml" />
+                <fx:include fx:id="generateTrip" source="GenerateTrip.fxml"/>
             </content>
         </Tab>
         <Tab text="Viajes" >

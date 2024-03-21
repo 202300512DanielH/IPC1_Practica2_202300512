@@ -3,13 +3,16 @@ package Panels;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 
 import javafx.stage.FileChooser;
 import java.io.*;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ResourceBundle;
 
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -20,15 +23,16 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 
-public class LoadRoutesController {
+public class LoadRoutesController implements Initializable {
+
+    private MainWindowsController mainWindowsController;
+
     @FXML
     private Button EditDistanceButton;
     @FXML
     private Button LoadRoutesButton;
     @FXML
     private TableView<Route> ShowInformation;
-
-    // Nuevos campos
     @FXML
     private TableColumn<Route, String> colID;
     @FXML
@@ -38,9 +42,16 @@ public class LoadRoutesController {
     @FXML
     private TableColumn<Route, String> colDistance;
 
-    @FXML
-    public void initialize() {
-        // Configuración de los cellValueFactory para las columnas
+    public LoadRoutesController() {
+        // Constructor sin argumentos
+    }
+
+    public void setMainWindowsController(MainWindowsController mainWindowsController) {
+        this.mainWindowsController = mainWindowsController;
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
         this.colID.setCellValueFactory(cellData -> cellData.getValue().idProperty());
         this.colStart.setCellValueFactory(cellData -> cellData.getValue().startProperty());
         this.colEnd.setCellValueFactory(cellData -> cellData.getValue().endProperty());
@@ -49,6 +60,11 @@ public class LoadRoutesController {
 
     @FXML
     private void loadRoutes(ActionEvent event) throws IOException {
+        // Comprueba si mainWindowsController es null y, si es así, crea una nueva instancia
+        if (mainWindowsController == null) {
+            mainWindowsController = new MainWindowsController();
+        }
+
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("CSV files", "*.csv"));
@@ -75,6 +91,7 @@ public class LoadRoutesController {
                     out.writeObject(route);
                     ShowInformation.getItems().add(route);
                 }
+                mainWindowsController.getGenerateTripController().fillComboBoxes(ShowInformation.getItems());
             }
         }
     }
@@ -106,8 +123,10 @@ public class LoadRoutesController {
         }
     }
 
+
     public ObservableList<Route> getAllRoutes() {
         return ShowInformation.getItems();
     }
+
 
 }
