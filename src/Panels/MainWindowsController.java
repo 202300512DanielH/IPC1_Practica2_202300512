@@ -16,6 +16,7 @@ public class MainWindowsController {
     @FXML
     private Tab generateTripTab;
 
+    @FXML
     public void initialize() {
         // Establecer MainWindowsController para LoadRoutesController y GenerateTripController
         if (loadRoutesController != null) {
@@ -24,13 +25,20 @@ public class MainWindowsController {
 
         if (generateTripController != null) {
             generateTripController.setMainWindowsController(this);
-            if (tabPane != null && generateTripTab != null) {
-                generateTripController.setTabPane(tabPane);
-                generateTripController.setGenerateTripTab(generateTripTab);
-                Platform.runLater(() -> generateTripController.postInitialize());
-            }
+        }
+
+        // Asegurarse de que postInitialize() se llame después de que FXMLLoader haya terminado de inyectar todos los campos @FXML
+        Platform.runLater(this::postInitialize);
+    }
+
+    public void postInitialize() {
+        if (generateTripController != null && tabPane != null && generateTripTab != null) {
+            generateTripController.setTabPane(tabPane);
+            generateTripController.setGenerateTripTab(generateTripTab);
+            generateTripController.setGenerateTripTabContent(generateTripTab.getContent());
         }
     }
+
     public LoadRoutesController getLoadRoutesController() {
         return loadRoutesController;
     }

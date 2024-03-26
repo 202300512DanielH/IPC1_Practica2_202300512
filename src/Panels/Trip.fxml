@@ -1,10 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="474.0" prefWidth="694.0" style="-fx-background-color: Turquoise;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Panels.TripController">
    <children>
-      <Button layoutX="575.0" layoutY="37.0" mnemonicParsing="false" text="Iniciar Todos" />
+      <Button fx:id="StartAll" layoutX="572.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: LimeGreen;" text="Iniciar Todos">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font></Button>
+      <Line endX="369.4000244140625" endY="8.0" layoutX="189.0" layoutY="157.0" startX="-83.39997863769531" startY="8.0" />
+      <Line endX="369.4000244140625" endY="8.0" layoutX="189.0" layoutY="278.0" startX="-83.39997863769531" startY="8.0" />
+      <Line endX="369.4000244140625" endY="8.0" layoutX="189.0" layoutY="409.0" startX="-83.39997863769531" startY="8.0" />
+      <Button fx:id="Start1" layoutX="31.0" layoutY="133.0" mnemonicParsing="false" style="-fx-background-color: CornflowerBlue;" text="Iniciar">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="Start2" layoutX="31.0" layoutY="255.0" mnemonicParsing="false" style="-fx-background-color: CornflowerBlue;" text="Iniciar">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="Start3" layoutX="31.0" layoutY="386.0" mnemonicParsing="false" style="-fx-background-color: CornflowerBlue;" text="Iniciar">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Button>
+      <ImageView fx:id="Image1" fitHeight="97.0" fitWidth="140.0" layoutX="419.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="Final3" layoutX="31.0" layoutY="356.0" prefHeight="18.0" prefWidth="114.0" text="Destino" />
+      <Label fx:id="KM3" layoutX="31.0" layoutY="337.0" prefHeight="18.0" prefWidth="114.0" text="Distancia" />
+      <Label fx:id="nameV3" layoutX="31.0" layoutY="318.0" prefHeight="18.0" prefWidth="114.0" text="Tipo de vehículo" />
+      <Label fx:id="Beg3" layoutX="568.0" layoutY="392.0" prefHeight="18.0" prefWidth="114.0" text="Inicio" />
+      <Label fx:id="DistTrav3" layoutX="232.0" layoutY="295.0" prefHeight="18.0" prefWidth="114.0" text="Recorrido" />
+      <Label fx:id="Gas3" layoutX="365.0" layoutY="295.0" prefHeight="18.0" prefWidth="114.0" text="Gasolina" />
+      <Button fx:id="Rech3" layoutX="568.0" layoutY="340.0" mnemonicParsing="false" style="-fx-background-color: LightCoral;" text="Recargar">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Button>
+      <Label fx:id="Final2" layoutX="31.0" layoutY="228.0" prefHeight="18.0" prefWidth="114.0" text="Destino" />
+      <Label fx:id="KM2" layoutX="31.0" layoutY="209.0" prefHeight="18.0" prefWidth="114.0" text="Distancia" />
+      <Label fx:id="nameV2" layoutX="31.0" layoutY="190.0" prefHeight="18.0" prefWidth="114.0" text="Tipo de vehículo" />
+      <Label fx:id="Beg2" layoutX="568.0" layoutY="264.0" prefHeight="18.0" prefWidth="114.0" text="Inicio" />
+      <Label fx:id="DistTrav2" layoutX="232.0" layoutY="167.0" prefHeight="18.0" prefWidth="114.0" text="Recorrido" />
+      <Label fx:id="Gas2" layoutX="365.0" layoutY="167.0" prefHeight="18.0" prefWidth="114.0" text="Gasolina" />
+      <Button fx:id="Rech2" layoutX="568.0" layoutY="212.0" mnemonicParsing="false" style="-fx-background-color: LightCoral;" text="Recargar">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Button>
+      <Label fx:id="Final1" layoutX="31.0" layoutY="109.0" prefHeight="18.0" prefWidth="114.0" text="Destino" />
+      <Label fx:id="KM1" layoutX="31.0" layoutY="90.0" prefHeight="18.0" prefWidth="114.0" text="Distancia" />
+      <Label fx:id="nameV1" layoutX="31.0" layoutY="71.0" prefHeight="18.0" prefWidth="114.0" text="Tipo de vehículo" />
+      <Label fx:id="Beg1" layoutX="568.0" layoutY="145.0" prefHeight="18.0" prefWidth="114.0" text="Inicio" />
+      <Label fx:id="DistTrav1" layoutX="232.0" layoutY="48.0" prefHeight="18.0" prefWidth="114.0" text="Recorrido" />
+      <Label fx:id="Gas1" layoutX="365.0" layoutY="48.0" prefHeight="18.0" prefWidth="114.0" text="Gasolina" />
+      <Button fx:id="Rech1" layoutX="568.0" layoutY="93.0" mnemonicParsing="false" style="-fx-background-color: LightCoral;" text="Recargar">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Button>
+      <ImageView fx:id="Image2" fitHeight="97.0" fitWidth="140.0" layoutX="422.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Image3" fitHeight="97.0" fitWidth="140.0" layoutX="419.0" layoutY="323.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="GoBack1" layoutX="568.0" layoutY="59.0" mnemonicParsing="false" style="-fx-background-color: SandyBrown;" text="Regresar" />
+      <Button fx:id="GoBack2" layoutX="568.0" layoutY="177.0" mnemonicParsing="false" style="-fx-background-color: SandyBrown;" text="Regresar" />
+      <Button fx:id="GoBack3" layoutX="568.0" layoutY="310.0" mnemonicParsing="false" style="-fx-background-color: SandyBrown;" text="Regresar" />
    </children>
 </AnchorPane>

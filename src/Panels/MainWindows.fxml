@@ -17,11 +17,11 @@
                 <fx:include fx:id="generateTrip" source="GenerateTrip.fxml"/>
             </content>
         </Tab>
-        <Tab text="Viajes" >
+        <!--<Tab text="Viajes" >
             <content>
                 <fx:include source="Trip.fxml" />
             </content>
-        </Tab>
+        </Tab>-->
         <Tab text="Historial" >
             <content>
                 <fx:include source="Record.fxml" />
