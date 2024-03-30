@@ -32,4 +32,31 @@ public class VehicleService {
         }
         return null;
     }
+
+    public Vehicle getSelectedVehicle(String vehicleName) {
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle.getVehicleName().equals(vehicleName)) {
+                return vehicle;
+            }
+        }
+        return null;
+    }
+
+    public double getGasAmount(String vehicleName) {
+        for (Vehicle vehicle : this.vehicles) {
+            if (vehicle.getVehicleName().equals(vehicleName)) {
+                return vehicle.getGasAmount();
+            }
+        }
+        return -1;
+    }
+
+    public double getGasConsumption(String vehicleName) {
+        for (Vehicle vehicle : this.vehicles) {
+            if (vehicle.getVehicleName().equals(vehicleName)) {
+                return vehicle.getGasConsumption();
+            }
+        }
+        return -1;
+    }
 }

@@ -7,17 +7,22 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="474.0" prefWidth="694.0" style="-fx-background-color: Turquoise;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Panels.RecordController">
-   <children>
-      <TableView layoutX="16.0" layoutY="77.0" prefHeight="342.0" prefWidth="662.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-        </columns>
-      </TableView>
-      <Label layoutX="243.0" layoutY="32.0" text="Historial de Viajes">
-         <font>
-            <Font name="Comic Sans MS" size="24.0" />
-         </font>
-      </Label>
-   </children>
+    <children>
+        <TableView fx:id="table" layoutX="16.0" layoutY="77.0" prefHeight="342.0" prefWidth="662.0">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="40.0" text="ID" />
+                <TableColumn fx:id="startTimeColumn" prefWidth="115.6" text="Fecha y hora Inicio" />
+                <TableColumn fx:id="endTimeColumn" prefWidth="115.6" text="Fecha y hora final" />
+                <TableColumn fx:id="distanceColumn" prefWidth="79.199951171875" text="Distancia" />
+                <TableColumn fx:id="vehicleColumn" prefWidth="116.79998779296875" text="Vehículo" />
+                <TableColumn fx:id="fuelConsumedColumn" prefWidth="88.800048828125" text="Gasolina usada" />
+                <TableColumn fx:id="colorColumn" prefWidth="108.00006103515625" text="Horientación" />
+            </columns>
+        </TableView>
+        <Label layoutX="243.0" layoutY="32.0" text="Historial de Viajes">
+            <font>
+                <Font name="Comic Sans MS" size="24.0" />
+            </font>
+        </Label>
+    </children>
 </AnchorPane>

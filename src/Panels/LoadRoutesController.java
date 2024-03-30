@@ -109,7 +109,7 @@ public class LoadRoutesController implements Initializable {
             loadRoutesBisectionController.setLoadRoutesController(this);
 
             Stage stage = new Stage();
-            stage.setTitle("Load Routes Bisection");
+            stage.setTitle("Editar Distancia de Rutas");
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {

@@ -55,9 +55,13 @@ public class GenerateTripController implements Initializable {
 
     private VehicleService vehicleService = new VehicleService();
 
+
+
+
     public GenerateTripController() {
-        // Constructor sin argumentos
+        this.mainWindowsController = new MainWindowsController();  // Initialize mainWindowsController
     }
+
 
     public void setMainWindowsController(MainWindowsController mainWindowsController) {
         this.mainWindowsController = mainWindowsController;
@@ -148,16 +152,19 @@ public class GenerateTripController implements Initializable {
     }
 
     public void switchToTripView() {
+        System.out.println("Entrando a switchToTripView");
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Trip.fxml"));
             Parent root = loader.load();
 
-            TripController tripController = loader.getController();
+            tripController = loader.getController();
 
             String selectedPlace1 = Places1.getValue();
             String selectedPlace2 = Places2.getValue();
-            String selectedVehicle = SelectedVehicles.getValue();
+            String selectedVehicleName = SelectedVehicles.getValue();
             String selectedRouteDistance = getSelectedRouteDistance(selectedPlace1, selectedPlace2);
+            Vehicle selectedVehicleObject = vehicleService.getSelectedVehicle(selectedVehicleName);
+            updateGasLabel(selectedVehicleObject, selectedPlace1, selectedPlace2);
 
             if (selectedRouteDistance != null) {
                 tripController.setKM1(selectedRouteDistance);
@@ -167,9 +174,9 @@ public class GenerateTripController implements Initializable {
 
             tripController.setBeg1(selectedPlace1);
             tripController.setFinal1(selectedPlace2);
-            tripController.setNameV1(selectedVehicle);
+            tripController.setNameV1(selectedVehicleName);
 
-            Image vehicleImage = vehicleService.getVehicleImage(selectedVehicle);
+            Image vehicleImage = vehicleService.getVehicleImage(selectedVehicleName);
             tripController.setImage1(vehicleImage);
 
             generateTripTabContent = root;
@@ -207,6 +214,9 @@ public class GenerateTripController implements Initializable {
                 String selectedPlace1 = Places1.getValue();
                 String selectedPlace2 = Places2.getValue();
                 String selectedVehicle = SelectedVehicles.getValue();
+                if (selectedVehicle != null) {
+                    SelectedVehicles.getItems().remove(selectedVehicle);
+                }
                 String selectedRouteDistance = getSelectedRouteDistance(selectedPlace1, selectedPlace2);
 
                 Image vehicleImage = vehicleService.getVehicleImage(selectedVehicle);
@@ -259,4 +269,15 @@ public class GenerateTripController implements Initializable {
     public void setGenerateTripTabContent(Node generateTripTabContent) {
         this.generateTripTabContent = generateTripTabContent;
     }
+
+    public double updateGasLabel(Vehicle vehicle, String selectedPlace1, String selectedPlace2) {
+        System.out.println("Entrando a updateGasLabel");
+        String selectedRouteDistance = getSelectedRouteDistance(selectedPlace1, selectedPlace2);
+        double km1 = Double.parseDouble(selectedRouteDistance); // Convertir la distancia de la ruta seleccionada a double
+        double gasRemaining = vehicle.getGasAmount() - (km1 / vehicle.getGasConsumption());
+        System.out.println("Gasolina restante calculada: " + gasRemaining);
+        tripController.setGas1Text(String.format("%.2f", gasRemaining));
+        return gasRemaining;
+    }
+
 }
