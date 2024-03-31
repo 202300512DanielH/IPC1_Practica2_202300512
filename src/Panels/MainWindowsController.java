@@ -27,7 +27,6 @@ public class MainWindowsController {
             generateTripController.setMainWindowsController(this);
         }
 
-        // Asegurarse de que postInitialize() se llame después de que FXMLLoader haya terminado de inyectar todos los campos @FXML
         Platform.runLater(this::postInitialize);
     }
 
